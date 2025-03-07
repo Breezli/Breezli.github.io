@@ -4365,7 +4365,7 @@ body[data-type='about'] #web_bg {
   position: absolute;
   right: 30px;
   top: 10px;
-  width: 220px;
+  width: 80%;
   -webkit-transition: -webkit-transform 2s cubic-bezier(0.13, 0.45, 0.21, 1.02);
   -moz-transition: -moz-transform 2s cubic-bezier(0.13, 0.45, 0.21, 1.02);
   -o-transition: -o-transform 2s cubic-bezier(0.13, 0.45, 0.21, 1.02);
@@ -4374,6 +4374,7 @@ body[data-type='about'] #web_bg {
 }
 .author-content-item.personalities .image img {
   display: block;
+  white: 100%;
   margin: 0 auto 20px;
   max-width: 100%;
   -webkit-transition: filter 375ms ease-in 0.2s;
@@ -4383,11 +4384,11 @@ body[data-type='about'] #web_bg {
   transition: filter 375ms ease-in 0.2s;
 }
 .author-content-item.personalities:hover .image {
-  -webkit-transform: rotate(-10deg);
-  -moz-transform: rotate(-10deg);
-  -o-transform: rotate(-10deg);
-  -ms-transform: rotate(-10deg);
-  transform: rotate(-10deg);
+  -webkit-transform: scale(1.1) translate(20px);
+  -moz-transform: scale(1.1) translate(20px);
+  -o-transform: scale(1.1) translate(20px);
+  -ms-transform: scale(1.1) translate(20px);
+  transform: scale(1.1) translate(20px);
 }
 .author-content-item.myphoto {
   height: 60%;
@@ -20144,7 +20145,7 @@ body[data-type="album_detail"] #page .author-content-item .card-content .banner-
 /* 响应式 */
 @media screen and (max-width: 1200px) {
   #album_detail .timeline ul li.album-item {
-    width: 49%;
+    /* width: 49%; */
     margin-right: 1%;
   }
 }
@@ -20344,9 +20345,9 @@ svg.icon {
 }
 
 /*top-img黑色透明玻璃效果移除，不建议加，除非你执着于完全一图流或者背景图对比色明显 */
-/* #page-header:not(.not-top-img):before {
+#page-header:not(.not-top-img):before {
   background-color: transparent !important;
-} */
+}
 
 /* 文章页面正文背景 */
 div#post {

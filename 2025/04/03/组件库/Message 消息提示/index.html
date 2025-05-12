@@ -1,0 +1,580 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Message 消息提示组件 | 松风狸 | Breezli</title><meta name="keywords" content="Message,消息提示组件"><meta name="author" content="Breezli"><meta name="copyright" content="Breezli"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Message 消息提示组件"><meta name="application-name" content="Message 消息提示组件"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Message 消息提示组件"><meta property="og:url" content="http://example.com/2025/04/03/%E7%BB%84%E4%BB%B6%E5%BA%93/Message%20%E6%B6%88%E6%81%AF%E6%8F%90%E7%A4%BA/index.html"><meta property="og:site_name" content="松风狸 | Breezli"><meta property="og:description" content="Message 消息提示组件 Message.vuescript1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif?_r_=3a44605a-67c5-ee6e-8138-907e1d45fd1c"><meta property="article:author" content="Breezli"><meta property="article:tag" content="前端, 博客"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif?_r_=3a44605a-67c5-ee6e-8138-907e1d45fd1c"><meta name="description" content="Message 消息提示组件 Message.vuescript1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2025/04/03/%E7%BB%84%E4%BB%B6%E5%BA%93/Message%20%E6%B6%88%E6%81%AF%E6%8F%90%E7%A4%BA/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css#fontawesome_animation 如果有就会加载，示例值：https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"吾身如浮萍，不敢言再会          ......","backTitle":"幸得天眷顾，得良友两三          ......"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: {"mode":"api","api":"https://img2color-go.vercel.app/api?img=","cover_change":true},
+  authorStatus: {"skills":["💻 前端技术学者","📕 红楼梦忠实书迷","🌄 旅行爱好者","🎨 国画九级选手","💤 睡觉居士","📜 诗词爱好者"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Breezli","link":"链接: ","source":"来源: 松风狸 | Breezli","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '松风狸 | Breezli',
+  title: 'Message 消息提示组件',
+  postAI: '',
+  pageFillDescription: 'Message 消息提示组件, Message.vue, script, 关键解释, template, 关键解释, methods.ts, 关键解释, types.ts, 关键解释, 使用示例, 核心 API, Props, 方法, 插槽, 注意事项消息提示组件定义组件名称默认类型默认自动关闭时间消息间距默认过渡动画控制消息可见性消息引用图标映射根据映射图标计算消息垂直位置动态样式绑定启动自动关闭定时器清除定时器关闭消息组件挂载时初始化监听变化触发销毁逻辑触发销毁回调暴露方法给外部关键解释定义组件名称为在全局注册时需通过调用为设置默认值动态计算消息垂直位置根据前一个消息的和累加计算当前消息的值通过获取当前消息的高度用于计算后续消息的偏移通过控制入场离开动画动画结束后触发移除暴露以下属性和方法给外部当前消息底部位置供后续消息计算偏移手动关闭消息的方法类型样式如是否显示关闭按钮文字居中鼠标进入暂停定时器鼠标离开重启定时器图标内容关闭按钮关键解释绑定动画名称如动画结束后触发移除控制消息的显示隐藏由响应式变量驱动鼠标悬停时暂停自动关闭移出后恢复定时器图标与内容文本类型不显示图标渲染属性传递的内容兼容字符串或自定义创建消息实例获取前一个消息的底部偏移关闭所有消息关键解释生成唯一并创建消息通过管理层级确保新消息始终在最上层将实例存入数组支持批量操作根据当前消息的查找前一个消息的用于计算当前消息的值关闭指定类型或所有消息关闭所有警告类型消息关闭所有消息关键解释定义支持的消息类型枚举消息唯一标识支持字符串或返回的函数是否显示关闭按钮内容是否居中使用示例基础用法操作成功自定义内容自定义内容关闭所有警告消息核心属性类型默认值说明消息类型自动关闭时间毫秒表示不关闭是否显示关闭按钮消息垂直间距过渡动画名称方法方法名参数说明创建并显示消息创建成功类型的消息关闭指定类型或所有消息插槽名称说明默认插槽自定义消息内容覆盖属性注意事项位置堆叠新消息会堆叠在前一个消息下方通过控制间距首个消息从顶部开始布局动画与销毁需配合过渡类如触发后自动移除类型扩展通过扩展支持的类型需同步更新图标映射关闭逻辑点击关闭按钮键或超出时间后自动关闭',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-04-03 08:55:04',
+  postMainColor: '#ffffff',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/img/512.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">松风狸 | Breezli</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/?id=13242559326&amp;server=netease"><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 梦境</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-plant-fill faa-tada" style="font-size: 0.9em;"></i><span> 簪花人间</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/cinema/"><i class="anzhiyufont anzhiyu-icon-book faa-tada" style="font-size: 0.9em;"></i><span> 匣中秋水</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gallerygroup/"><i class="anzhiyufont anzhiyu-icon-instagram faa-tada" style="font-size: 0.9em;"></i><span> 彩云霁月</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><span> 友人</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><span> 关于</span></a></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">五月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">17</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">19</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">三月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">32</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BB%84%E4%BB%B6%E5%BA%93/" itemprop="url">组件库</a></span><span class="article-meta tags"></span></div></div><h1 class="post-title" itemprop="name headline">Message 消息提示组件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-04-02T20:28:56.323Z" title="发表于 2025-04-03 04:28:56">2025-04-03</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-04-03T00:55:04.257Z" title="更新于 2025-04-03 08:55:04">2025-04-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="Message 消息提示组件"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为成都"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>成都</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif?_r_=3a44605a-67c5-ee6e-8138-907e1d45fd1c"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2025/04/03/%E7%BB%84%E4%BB%B6%E5%BA%93/Message%20%E6%B6%88%E6%81%AF%E6%8F%90%E7%A4%BA/"><header><a class="post-meta-categories" href="/categories/%E7%BB%84%E4%BB%B6%E5%BA%93/" itemprop="url">组件库</a><h1 id="CrawlerTitle" itemprop="name headline">Message 消息提示组件</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Breezli</span><time itemprop="dateCreated datePublished" datetime="2025-04-02T20:28:56.323Z" title="发表于 2025-04-03 04:28:56">2025-04-03</time><time itemprop="dateCreated datePublished" datetime="2025-04-03T00:55:04.257Z" title="更新于 2025-04-03 08:55:04">2025-04-03</time></header><h1 id="Message-消息提示组件"><a href="#Message-消息提示组件" class="headerlink" title="Message 消息提示组件"></a>Message 消息提示组件</h1><hr>
+<h2 id="Message-vue"><a href="#Message-vue" class="headerlink" title="Message.vue"></a>Message.vue</h2><h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup lang=<span class="string">&quot;ts&quot;</span>&gt;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">MessageProps</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./types&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; computed, onMounted, ref, watch &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useOffset &#125; <span class="keyword">from</span> <span class="string">&#x27;./methods&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; typeIconMap &#125; <span class="keyword">from</span> <span class="string">&#x27;@veyra/utils&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">VrIcon</span> <span class="keyword">from</span> <span class="string">&#x27;../Icon/Icon.vue&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">defineOptions</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;VrMessage&#x27;</span>, <span class="comment">// 定义组件名称</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> props = <span class="title function_">withDefaults</span>(defineProps&lt;<span class="title class_">MessageProps</span>&gt;(), &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;info&#x27;</span>, <span class="comment">// 默认类型</span></span><br><span class="line">    <span class="attr">duration</span>: <span class="number">3000</span>, <span class="comment">// 默认自动关闭时间</span></span><br><span class="line">    <span class="attr">offset</span>: <span class="number">10</span>, <span class="comment">// 消息间距</span></span><br><span class="line">    <span class="attr">transitionName</span>: <span class="string">&#x27;fade-up&#x27;</span>, <span class="comment">// 默认过渡动画</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> visible = <span class="title function_">ref</span>(<span class="literal">false</span>); <span class="comment">// 控制消息可见性</span></span><br><span class="line"><span class="keyword">const</span> messageRef = ref&lt;<span class="title class_">HTMLDivElement</span>&gt;(); <span class="comment">// 消息 DOM 引用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 图标映射（根据 type 映射图标）</span></span><br><span class="line"><span class="keyword">const</span> iconName = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> typeIconMap.<span class="title function_">get</span>(props.<span class="property">type</span>) ?? <span class="string">&#x27;circle-info&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算消息垂直位置</span></span><br><span class="line"><span class="keyword">const</span> &#123; topOffset, bottomOffset &#125; = <span class="title function_">useOffset</span>(&#123;</span><br><span class="line">    <span class="attr">getLastBottomOffset</span>: getLastBottomOffset.<span class="title function_">bind</span>(props),</span><br><span class="line">    <span class="attr">offset</span>: props.<span class="property">offset</span>,</span><br><span class="line">    <span class="attr">boxHeight</span>: <span class="title function_">computed</span>(<span class="function">() =&gt;</span> messageRef.<span class="property">value</span>?.<span class="property">offsetHeight</span> ?? <span class="number">0</span>),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 动态样式绑定</span></span><br><span class="line"><span class="keyword">const</span> cssStyle = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> (&#123;</span><br><span class="line">    <span class="attr">top</span>: <span class="string">`<span class="subst">$&#123;topOffset.value&#125;</span>px`</span>,</span><br><span class="line">    <span class="attr">zIndex</span>: props.<span class="property">zIndex</span>,</span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">timer</span>: <span class="built_in">number</span>;</span><br><span class="line"><span class="comment">// 启动自动关闭定时器</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">startTimer</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (props.<span class="property">duration</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(close, props.<span class="property">duration</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清除定时器</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">clearTimer</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭消息</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">close</span>(<span class="params"></span>) &#123;</span><br><span class="line">    visible.<span class="property">value</span> = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 组件挂载时初始化</span></span><br><span class="line"><span class="title function_">onMounted</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    visible.<span class="property">value</span> = <span class="literal">true</span>;</span><br><span class="line">    <span class="title function_">startTimer</span>();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听 visible 变化触发销毁逻辑</span></span><br><span class="line"><span class="title function_">watch</span>(visible, <span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!val) props.<span class="title function_">onDestory</span>(); <span class="comment">// 触发销毁回调</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 暴露方法给外部</span></span><br><span class="line"><span class="title function_">defineExpose</span>(&#123;</span><br><span class="line">    bottomOffset,</span><br><span class="line">    close,</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="关键解释"><a href="#关键解释" class="headerlink" title="关键解释"></a><em><strong>关键解释</strong></em></h3><blockquote>
+<p><code>defineOptions</code></p>
+<p>定义组件名称为 <code>VrMessage</code>，在全局注册时需通过 <code>VrMessage</code> 调用。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">defineOptions</span>(&#123;</span><br><span class="line"> <span class="attr">name</span>: <span class="string">&#x27;VrMessage&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></blockquote>
+<hr>
+<blockquote>
+<p><code>withDefaults</code></p>
+<p>为 <code>props</code> 设置默认值：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> props = <span class="title function_">withDefaults</span>(defineProps&lt;<span class="title class_">MessageProps</span>&gt;(), &#123;</span><br><span class="line"> <span class="attr">type</span>: <span class="string">&#x27;info&#x27;</span>,</span><br><span class="line"> <span class="attr">duration</span>: <span class="number">3000</span>,</span><br><span class="line"> <span class="attr">offset</span>: <span class="number">10</span>,</span><br><span class="line"> <span class="attr">transitionName</span>: <span class="string">&#x27;fade-up&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></blockquote>
+<hr>
+<blockquote>
+<p><code>useOffset</code></p>
+<p>动态计算消息垂直位置：</p>
+<ul>
+<li><code>topOffset</code>：根据前一个消息的 <code>bottomOffset</code> 和 <code>offset</code> 累加计算当前消息的 <code>top</code> 值。</li>
+<li><code>boxHeight</code>：通过 <code>messageRef</code> 获取当前消息的高度，用于计算后续消息的偏移。</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>Transition</code></p>
+<p>通过 <code>transitionName</code> 控制入场&#x2F;离开动画：</p>
+<ul>
+<li><code>@after-leave</code>：动画结束后触发 <code>onDestory</code> 移除 DOM。</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>defineExpose</code></p>
+<p>暴露以下属性和方法给外部：</p>
+<ul>
+<li><code>bottomOffset</code>：当前消息底部位置，供后续消息计算偏移。</li>
+<li><code>close</code>：手动关闭消息的方法。</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;Transition</span><br><span class="line">    :name=&quot;transitionName&quot;</span><br><span class="line">    @after-leave=&quot;props.onDestory()&quot;</span><br><span class="line">  &gt;</span><br><span class="line">    &lt;div</span><br><span class="line">      v-show=&quot;visible&quot;</span><br><span class="line">      :style=&quot;cssStyle&quot;</span><br><span class="line">      class=&quot;vr-message&quot;</span><br><span class="line">      :class=&quot;&#123;</span><br><span class="line">        [`vr-message--$&#123;type&#125;`]: type, // 类型样式（如 vr-message--success）</span><br><span class="line">        &#x27;is-close&#x27;: showClose, // 是否显示关闭按钮</span><br><span class="line">        &#x27;text-center&#x27;: center, // 文字居中</span><br><span class="line">      &#125;&quot;</span><br><span class="line">      role=&quot;alert&quot;</span><br><span class="line">      @mouseenter=&quot;clearTimer&quot; // 鼠标进入暂停定时器</span><br><span class="line">      @mouseleave=&quot;startTimer&quot; // 鼠标离开重启定时器</span><br><span class="line">    &gt;</span><br><span class="line">      &lt;!-- 图标 --&gt;</span><br><span class="line">      &lt;vr-icon</span><br><span class="line">        v-if=&quot;type !== &#x27;text&#x27;&quot;</span><br><span class="line">        class=&quot;vr-message__icon&quot;</span><br><span class="line">        :icon=&quot;iconName&quot;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;!-- 内容 --&gt;</span><br><span class="line">      &lt;div class=&quot;vr-message__content&quot;&gt;</span><br><span class="line">        &lt;slot&gt;</span><br><span class="line">          &lt;render-vnode v-if=&quot;message&quot; :vNode=&quot;message&quot; /&gt;</span><br><span class="line">        &lt;/slot&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;!-- 关闭按钮 --&gt;</span><br><span class="line">      &lt;div v-if=&quot;showClose&quot; class=&quot;vr-message__close&quot;&gt;</span><br><span class="line">        &lt;vr-icon icon=&quot;xmark&quot; @click.stop=&quot;close&quot; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/Transition&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="关键解释-1"><a href="#关键解释-1" class="headerlink" title="关键解释"></a><em><strong>关键解释</strong></em></h3><blockquote>
+<p><code>Transition</code></p>
+<ul>
+<li><code>name=&quot;transitionName&quot;</code>：绑定动画名称（如 <code>fade-up</code>）。</li>
+<li><code>@after-leave</code>：动画结束后触发 <code>onDestory</code> 移除 DOM。</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>v-show=&quot;visible&quot;</code></p>
+<p>控制消息的显示&#x2F;隐藏，由 <code>visible</code> 响应式变量驱动。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>@mouseenter</code>&#x2F;<code>@mouseleave</code></p>
+<ul>
+<li>鼠标悬停时暂停自动关闭，移出后恢复定时器。</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p>图标与内容</p>
+<ul>
+<li><code>type !== &#39;text&#39;</code>：文本类型不显示图标。</li>
+<li><code>&lt;render-vnode&gt;</code>：渲染 <code>message</code> 属性传递的 VNode 内容（兼容字符串或自定义 VNode）。</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="methods-ts"><a href="#methods-ts" class="headerlink" title="methods.ts"></a>methods.ts</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">CreateMessageProps</span>, <span class="title class_">MessageInstance</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./types&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; render, h, shallowReactive &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useZIndex &#125; <span class="keyword">from</span> <span class="string">&#x27;@veyra/hooks&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> instances = shallowReactive&lt;<span class="title class_">MessageInstance</span>[]&gt;([]);</span><br><span class="line"><span class="keyword">const</span> &#123; nextZIndex &#125; = <span class="title function_">useZIndex</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> messageDefaults = &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;info&#x27;</span>,</span><br><span class="line">    <span class="attr">duration</span>: <span class="number">3000</span>,</span><br><span class="line">    <span class="attr">offset</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="attr">transitionName</span>: <span class="string">&#x27;fade-up&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建消息实例</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">createMessage</span>(<span class="params"><span class="attr">props</span>: <span class="title class_">CreateMessageProps</span></span>): <span class="title class_">MessageInstance</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> id = <span class="string">`message-<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span>`</span>;</span><br><span class="line">    <span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">destory</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">        <span class="keyword">const</span> idx = instances.<span class="title function_">findIndex</span>(<span class="function"><span class="params">i</span> =&gt;</span> i.<span class="property">id</span> === id);</span><br><span class="line">        <span class="keyword">if</span> (idx !== -<span class="number">1</span>) &#123;</span><br><span class="line">            instances.<span class="title function_">splice</span>(idx, <span class="number">1</span>);</span><br><span class="line">            <span class="title function_">render</span>(<span class="literal">null</span>, container);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">const</span> _props = &#123;</span><br><span class="line">        ...props,</span><br><span class="line">        id,</span><br><span class="line">        <span class="attr">zIndex</span>: <span class="title function_">nextZIndex</span>(),</span><br><span class="line">        <span class="attr">onDestory</span>: destory,</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">const</span> vnode = <span class="title function_">h</span>(<span class="title class_">MessageConstructor</span>, _props);</span><br><span class="line">    <span class="title function_">render</span>(vnode, container);</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(container.<span class="property">firstElementChild</span>!);</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        id,</span><br><span class="line">        vnode,</span><br><span class="line">        <span class="attr">props</span>: _props,</span><br><span class="line">        <span class="attr">handler</span>: &#123;</span><br><span class="line">            <span class="attr">close</span>: <span class="function">() =&gt;</span> vnode.<span class="property">component</span>!.<span class="property">exposed</span>!.<span class="title function_">close</span>(),</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取前一个消息的底部偏移</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">getLastBottomOffset</span>(<span class="params"><span class="attr">this</span>: <span class="title class_">MessageProps</span></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> prevInstance = instances.<span class="title function_">find</span>(</span><br><span class="line">        <span class="function"><span class="params">i</span> =&gt;</span> i.<span class="property">id</span> &lt; <span class="variable language_">this</span>.<span class="property">id</span></span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">return</span> prevInstance?.<span class="property">exposed</span>?.<span class="property">bottomOffset</span> ?? <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭所有消息</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">closeAll</span>(<span class="params"><span class="attr">type</span>?: messageType</span>) &#123;</span><br><span class="line">    instances.<span class="title function_">forEach</span>(<span class="function"><span class="params">instance</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">type</span> || instance.<span class="property">props</span>.<span class="property">type</span> === <span class="keyword">type</span>) &#123;</span><br><span class="line">            instance.<span class="property">handler</span>.<span class="title function_">close</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="关键解释-2"><a href="#关键解释-2" class="headerlink" title="关键解释"></a><em><strong>关键解释</strong></em></h3><blockquote>
+<p><code>createMessage</code></p>
+<ul>
+<li>生成唯一 <code>id</code>，并创建消息 DOM。</li>
+<li>通过 <code>useZIndex</code> 管理层级，确保新消息始终在最上层。</li>
+<li>将实例存入 <code>instances</code> 数组，支持批量操作。</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>getLastBottomOffset</code></p>
+<p>根据当前消息的 <code>id</code>，查找前一个消息的 <code>bottomOffset</code>，用于计算当前消息的 <code>top</code> 值。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>closeAll</code></p>
+<p>关闭指定类型或所有消息：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">message.<span class="title function_">closeAll</span>(<span class="string">&#x27;warning&#x27;</span>); <span class="comment">// 关闭所有警告类型消息</span></span><br><span class="line">message.<span class="title function_">closeAll</span>(); <span class="comment">// 关闭所有消息</span></span><br></pre></td></tr></table></figure></blockquote>
+<hr>
+<h3 id="types-ts"><a href="#types-ts" class="headerlink" title="types.ts"></a>types.ts</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">VNode</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> messageTypes = [<span class="string">&#x27;info&#x27;</span>, <span class="string">&#x27;success&#x27;</span>, <span class="string">&#x27;warning&#x27;</span>, <span class="string">&#x27;danger&#x27;</span>, <span class="string">&#x27;error&#x27;</span>] <span class="keyword">as</span> <span class="keyword">const</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> messageType = (<span class="keyword">typeof</span> messageTypes)[<span class="built_in">number</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> <span class="title class_">MessageProps</span> &#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="built_in">string</span>;</span><br><span class="line">    <span class="attr">message</span>?: <span class="built_in">string</span> | <span class="title class_">VNode</span> | (<span class="function">() =&gt;</span> <span class="title class_">VNode</span>);</span><br><span class="line">    <span class="attr">duration</span>?: <span class="built_in">number</span>;</span><br><span class="line">    <span class="attr">showClose</span>?: <span class="built_in">boolean</span>;</span><br><span class="line">    <span class="attr">center</span>?: <span class="built_in">boolean</span>;</span><br><span class="line">    <span class="attr">type</span>?: messageType;</span><br><span class="line">    <span class="attr">offset</span>?: <span class="built_in">number</span>;</span><br><span class="line">    <span class="attr">zIndex</span>: <span class="built_in">number</span>;</span><br><span class="line">    <span class="attr">transitionName</span>?: <span class="built_in">string</span>;</span><br><span class="line">    <span class="attr">onDestory</span>: <span class="function">() =&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">MessageOptions</span> = <span class="title class_">Partial</span>&lt;<span class="title class_">Omit</span>&lt;<span class="title class_">MessageProps</span>, <span class="string">&#x27;id&#x27;</span> | <span class="string">&#x27;onDestory&#x27;</span>&gt;&gt;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> <span class="title class_">MessageInstance</span> &#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="built_in">string</span>;</span><br><span class="line">    <span class="attr">vnode</span>: <span class="title class_">VNode</span>;</span><br><span class="line">    <span class="attr">props</span>: <span class="title class_">MessageProps</span>;</span><br><span class="line">    <span class="attr">handler</span>: &#123;</span><br><span class="line">        <span class="attr">close</span>: <span class="function">() =&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">CreateMessageProps</span> = <span class="title class_">Omit</span>&lt;</span><br><span class="line">    <span class="title class_">MessageProps</span>,</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span> | <span class="string">&#x27;zIndex&#x27;</span> | <span class="string">&#x27;onDestory&#x27;</span></span><br><span class="line">&gt;;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="关键解释-3"><a href="#关键解释-3" class="headerlink" title="关键解释"></a><em><strong>关键解释</strong></em></h3><blockquote>
+<p><code>messageTypes</code></p>
+<p>定义支持的消息类型枚举：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> messageTypes = [</span><br><span class="line"> <span class="string">&#x27;info&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;success&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;warning&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;danger&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">] <span class="keyword">as</span> <span class="keyword">const</span>;</span><br></pre></td></tr></table></figure></blockquote>
+<hr>
+<blockquote>
+<p><code>MessageProps</code></p>
+<ul>
+<li><code>id</code>: 消息唯一标识。</li>
+<li><code>message</code>: 支持字符串、VNode 或返回 VNode 的函数。</li>
+<li><code>showClose</code>: 是否显示关闭按钮。</li>
+<li><code>center</code>: 内容是否居中。</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; message &#125; from &#x27;veyra-ui&#x27;;</span><br><span class="line"></span><br><span class="line">// 基础用法</span><br><span class="line">message(&#x27;操作成功&#x27;, &#123;</span><br><span class="line">    type: &#x27;success&#x27;,</span><br><span class="line">    duration: 2000,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 自定义内容</span><br><span class="line">message(&#123;</span><br><span class="line">    message: () =&gt; h(&#x27;div&#x27;, &#123; style: &#x27;color: red&#x27; &#125;, &#x27;自定义内容&#x27;),</span><br><span class="line">    showClose: true,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 关闭所有警告消息</span><br><span class="line">message.closeAll(&#x27;warning&#x27;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="核心-API"><a href="#核心-API" class="headerlink" title="核心 API"></a>核心 API</h3><h4 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>type</code></td>
+<td><code>messageType</code></td>
+<td><code>info</code></td>
+<td>消息类型（<code>info/success/warning/danger/error</code>）</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>&#96;string</td>
+<td>VNode</td>
+<td>(() &#x3D;&gt; VNode)&#96;</td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td><code>number</code></td>
+<td><code>3000</code></td>
+<td>自动关闭时间（毫秒），0 表示不关闭</td>
+</tr>
+<tr>
+<td><code>showClose</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>是否显示关闭按钮</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td><code>number</code></td>
+<td><code>10</code></td>
+<td>消息垂直间距</td>
+</tr>
+<tr>
+<td><code>transitionName</code></td>
+<td><code>string</code></td>
+<td><code>fade-up</code></td>
+<td>过渡动画名称</td>
+</tr>
+</tbody></table>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>message()</code></td>
+<td><code>MessageOptions</code></td>
+<td>创建并显示消息</td>
+</tr>
+<tr>
+<td><code>success()</code></td>
+<td><code>MessageOptions</code></td>
+<td>创建成功类型的消息</td>
+</tr>
+<tr>
+<td><code>closeAll()</code></td>
+<td><code>type?: messageType</code></td>
+<td>关闭指定类型或所有消息</td>
+</tr>
+</tbody></table>
+<h4 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>默认插槽</td>
+<td>自定义消息内容（覆盖 <code>message</code> 属性）</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li><p><strong>位置堆叠</strong>：</p>
+<ul>
+<li>新消息会堆叠在前一个消息下方，通过 <code>offset</code> 控制间距。</li>
+<li>首个消息从顶部 <code>offset</code> 开始布局。</li>
+</ul>
+</li>
+<li><p><strong>动画与销毁</strong>：</p>
+<ul>
+<li><code>transitionName</code> 需配合 CSS 过渡类（如 <code>fade-up-enter-active</code>）。</li>
+<li><code>@after-leave</code> 触发后自动移除 DOM。</li>
+</ul>
+</li>
+<li><p><strong>类型扩展</strong>：</p>
+<ul>
+<li>通过 <code>messageTypes</code> 扩展支持的类型，需同步更新 <code>typeIconMap</code> 图标映射。</li>
+</ul>
+</li>
+<li><p><strong>关闭逻辑</strong>：</p>
+<ul>
+<li>点击关闭按钮、Escape 键、或超出 <code>duration</code> 时间后自动关闭。</li>
+</ul>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="/img/512.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="/img/512.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">Breezli</div><div class="post-copyright__author_desc">“松间听风，忽见灵狸”</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2025/04/03/%E7%BB%84%E4%BB%B6%E5%BA%93/Message%20%E6%B6%88%E6%81%AF%E6%8F%90%E7%A4%BA/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2025/04/03/%E7%BB%84%E4%BB%B6%E5%BA%93/Message%20%E6%B6%88%E6%81%AF%E6%8F%90%E7%A4%BA/')">Message 消息提示组件</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2025/04/03/%E7%BB%84%E4%BB%B6%E5%BA%93/Message%20%E6%B6%88%E6%81%AF%E6%8F%90%E7%A4%BA/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Message 消息提示组件&amp;url=http://example.com/2025/04/03/%E7%BB%84%E4%BB%B6%E5%BA%93/Message%20%E6%B6%88%E6%81%AF%E6%8F%90%E7%A4%BA/&amp;pic=https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif?_r_=3a44605a-67c5-ee6e-8138-907e1d45fd1c" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">松风狸 | Breezli</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"></div></div></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2025/03/05/67c7e99e3513a.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/04/03/%E7%BB%84%E4%BB%B6%E5%BA%93/Dropdown%20%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif?_r_=b22fd3e2-dfb3-e69e-4717-add2294e614e" onerror="onerror=null;src='https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Dropdown 下拉菜单</div></div></a></div><div class="next-post pull-right"><a href="/2025/04/03/%E7%BB%84%E4%BB%B6%E5%BA%93/MessageBox%20%E5%AF%B9%E8%AF%9D%E5%BC%B9%E5%87%BA%E6%A1%86/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif?_r_=8509cf75-4345-333e-83d4-b2410079b8ce" onerror="onerror=null;src='https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MessageBox 对话框组件</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="/img/512.png" onerror="this.onerror=null;this.src='https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://emotion.acs.pw/emotion/QQ/129.gif" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">错位的人格，错位的才情；</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">错位的时代，错位的人生。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">在错误的路口抢夺正确的结果，</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">用虚假的手段寻回真实的自己。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">在诗意，自由的“美丽新世界”。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Breezli</h1><div class="author-info__desc">“松间听风，忽见灵狸”</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Breezli" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/3546391152429457" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(null) center center / 100% no-repeat"></div><div class="back face" style="background: url(null) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Message-%E6%B6%88%E6%81%AF%E6%8F%90%E7%A4%BA%E7%BB%84%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">Message 消息提示组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Message-vue"><span class="toc-number">1.1.</span> <span class="toc-text">Message.vue</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#script"><span class="toc-number">1.1.1.</span> <span class="toc-text">script</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%A7%A3%E9%87%8A"><span class="toc-number">1.1.2.</span> <span class="toc-text">关键解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#template"><span class="toc-number">1.1.3.</span> <span class="toc-text">template</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%A7%A3%E9%87%8A-1"><span class="toc-number">1.1.4.</span> <span class="toc-text">关键解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#methods-ts"><span class="toc-number">1.1.5.</span> <span class="toc-text">methods.ts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%A7%A3%E9%87%8A-2"><span class="toc-number">1.1.6.</span> <span class="toc-text">关键解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#types-ts"><span class="toc-number">1.1.7.</span> <span class="toc-text">types.ts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%A7%A3%E9%87%8A-3"><span class="toc-number">1.1.8.</span> <span class="toc-text">关键解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.1.9.</span> <span class="toc-text">使用示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83-API"><span class="toc-number">1.1.10.</span> <span class="toc-text">核心 API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Props"><span class="toc-number">1.1.10.1.</span> <span class="toc-text">Props</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.10.2.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD"><span class="toc-number">1.1.10.3.</span> <span class="toc-text">插槽</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.1.11.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/05/12/JS/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/" title="隐式转换"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://bu.dusays.com/2025/03/05/67c7e99e3513a.png" onerror="this.onerror=null;this.src='https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif'" alt="隐式转换"/></a><div class="content"><a class="title" href="/2025/05/12/JS/%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/" title="隐式转换">隐式转换</a><time datetime="2025-05-11T16:14:38.220Z" title="发表于 2025-05-12 00:14:38">2025-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/12/JS/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="数据类型"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://bu.dusays.com/2025/03/05/67c7e99e3513a.png" onerror="this.onerror=null;this.src='https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif'" alt="数据类型"/></a><div class="content"><a class="title" href="/2025/05/12/JS/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="数据类型">数据类型</a><time datetime="2025-05-11T16:14:07.985Z" title="发表于 2025-05-12 00:14:07">2025-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/12/JS/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="单点登录"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://bu.dusays.com/2025/03/05/67c7e99e3513a.png" onerror="this.onerror=null;this.src='https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif'" alt="单点登录"/></a><div class="content"><a class="title" href="/2025/05/12/JS/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="单点登录">单点登录</a><time datetime="2025-05-11T16:13:30.112Z" title="发表于 2025-05-12 00:13:30">2025-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/12/JS/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" title="原型原型链"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://bu.dusays.com/2025/03/05/67c7e99e3513a.png" onerror="this.onerror=null;this.src='https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif'" alt="原型原型链"/></a><div class="content"><a class="title" href="/2025/05/12/JS/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" title="原型原型链">原型原型链</a><time datetime="2025-05-11T16:11:59.720Z" title="发表于 2025-05-12 00:11:59">2025-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/11/JS/new%E6%93%8D%E4%BD%9C%E7%AC%A6/" title="new操作符"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://bu.dusays.com/2025/03/05/67c7e99e3513a.png" onerror="this.onerror=null;this.src='https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif'" alt="new操作符"/></a><div class="content"><a class="title" href="/2025/05/11/JS/new%E6%93%8D%E4%BD%9C%E7%AC%A6/" title="new操作符">new操作符</a><time datetime="2025-05-11T13:27:12.318Z" title="发表于 2025-05-11 21:27:12">2025-05-11</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title="博客框架为Hexo_v5.4.0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg" alt="博客框架为Hexo_v5.4.0"/></a><a class="github-badge" target="_blank" href="https://blog.anheyu.com/" style="margin-inline:5px" data-title="本站使用AnZhiYu主题" title="本站使用AnZhiYu主题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg" alt="本站使用AnZhiYu主题"/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title="本站项目由Github托管"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg" alt="本站项目由Github托管"/></a></p></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2025 By <a class="footer-bar-link" href="/" title="Breezli" target="_blank">Breezli</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    window.typed = new Typed("#footer-type-tips", {
+      strings: ["总思念，紫竹萧萧月如钩，溪光摇荡屋如舟","思念那，青山在，绿水流。","-----","花繁一瞬，形色浮云","撇去眼前浮云，方得心之自由。","-----","即使最后归于空寂","过程之间的有情","也同样动容。","-----"],
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("footer-type-tips").innerHTML = '总思念，紫竹萧萧月如钩，溪光摇荡屋如舟'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.cbd.int/typed.js@2.1.0/dist/typed.umd.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">68</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">9</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://bu.dusays.com/2025/03/05/67c7f047dfa72.gif&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/?id=13242559326&amp;server=netease"><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 梦境</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-plant-fill faa-tada" style="font-size: 0.9em;"></i><span> 簪花人间</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/cinema/"><i class="anzhiyufont anzhiyu-icon-book faa-tada" style="font-size: 0.9em;"></i><span> 匣中秋水</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gallerygroup/"><i class="anzhiyufont anzhiyu-icon-instagram faa-tada" style="font-size: 0.9em;"></i><span> 彩云霁月</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><span> 友人</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><span> 关于</span></a></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="13242559326" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.5"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://music.163.com/#/playlist?id=13242559326&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>var meting_api = "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";
+</script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  //- const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  const grt = new Date("2025-3-1");
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+
+  const ascll = [
+    `   原来我这几十年的岁月，不过只是这样一个简单的故事.`,
+    `
+                                                                         
+██████╗ ██████╗ ███████╗███████╗███████╗██╗     ██╗
+██╔══██╗██╔══██╗██╔════╝██╔════╝╚══███╔╝██║     ██║
+██████╔╝██████╔╝█████╗  █████╗    ███╔╝ ██║     ██║
+██╔══██╗██╔══██╗██╔══╝  ██╔══╝   ███╔╝  ██║     ██║
+██████╔╝██║  ██║███████╗███████╗███████╗███████╗██║
+╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚══════╝╚═╝
+
+    `,
+    "   已上线", dnum, "天",
+    "©2025 By 松风狸 V1.6.14",
+  ];
+
+  setTimeout(
+    Log.bind(
+      console,
+      "%c ⚡ %c 你正在访问 Breezli 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}%c\n`,
+      "color:#ffb07c",
+      "color:#ffb07c",
+      "color:#ffb07c",
+      "color:#ffb07c",
+      "color:#ffb07c",
+      "color:#ffb07c",
+      "color:#425AEF"
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好,旅行客。", "color:white; background-color:#4f90d9", ""));
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

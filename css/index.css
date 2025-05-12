@@ -4759,7 +4759,7 @@ body[data-type='about'] #web_bg {
   min-height: 300px;
   overflow: hidden;
   color: var(--anzhiyu-white);
-  width: 59%;
+  width: 39%;
 }
 .author-content-item .content-bottom {
   margin-top: auto;
@@ -4798,8 +4798,8 @@ body[data-type='about'] #web_bg {
   margin-right: 0.5rem;
 }
 .author-content-item.game-yuanshen::after {
-  -webkit-box-shadow: 0 -69px 203px 11px #575d8b inset;
-  box-shadow: 0 -69px 203px 11px #575d8b inset;
+  -webkit-box-shadow: 0 -69px 203px 11px #5a8848 inset;
+  box-shadow: 0 -69px 203px 11px #5a8848 inset;
   position: absolute;
   content: '';
   width: 100%;
@@ -4808,7 +4808,7 @@ body[data-type='about'] #web_bg {
   left: 0;
 }
 .author-content-item.comic-content {
-  width: 39%;
+  width: 59%;
   min-height: 300px;
   overflow: hidden;
 }
@@ -4819,7 +4819,7 @@ body[data-type='about'] #web_bg {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  width: 120%;
+  width: 110%;
   height: 100%;
   position: absolute;
   left: 50%;
@@ -4854,7 +4854,7 @@ body[data-type='about'] #web_bg {
   overflow: hidden;
 }
 .author-content-item.comic-content .comic-item:hover {
-  width: 46%;
+  width: 66%;
 }
 .author-content-item.comic-content .comic-item:hover .comic-item-cover {
   left: 16%;

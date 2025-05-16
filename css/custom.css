@@ -37,10 +37,3 @@
   height: 100%;
   object-fit: cover;
 }
-  
-  /* 移动端适配 */
-  @media (max-width: 768px) {
-	.home-banner-video {
-	  display: none;  /* 移动端可隐藏视频，改用静态背景 */
-	}
-  }

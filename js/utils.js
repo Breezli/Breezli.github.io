@@ -605,16 +605,26 @@ const anzhiyu = {
       let message = "";
 
       if (hour >= 0 && hour <= 5) {
-        message = "睡个好觉，保证精力充沛";
+        message = "熬夜ing,随机挑一个点睡觉🕑";
       } else if (hour > 5 && hour <= 10) {
-        message = "一日之计在于晨";
-      } else if (hour > 10 && hour <= 14) {
-        message = "吃饱了才有力气干活";
-      } else if (hour > 14 && hour <= 18) {
-        message = "集中精力，攻克难关";
-      } else if (hour > 18 && hour <= 24) {
-        message = "不要太劳累了，早睡更健康";
-      }
+        message = "大概率这会还在睡😴";
+      } else if (hour > 10 && hour <= 12) {
+        message = "处理事务👩‍💻";
+      }else if (hour > 12 && hour <= 13) {
+        message = "纠结午饭吃什么🍜";
+      } else if (hour > 13 && hour <= 18) {
+        message = "下午来学一些稀奇的东西🔍";
+      } else if (hour > 18 && hour <= 19) {
+        message = "想吃汉堡烤肉煎饼🍖"
+      } else if (hour > 19 && hour <= 21) {
+        message = "专心学技术时间👩‍💻";
+      } else if (hour > 21 && hour <= 22) {
+        message = "好想看个电影啊🎬";
+      }else if (hour > 22 && hour <= 23) {
+        message = "eaaa...电影又来不及看了";
+      } else {
+        message = "不管怎样,明天又是新的一天"
+      };
 
       return message;
     };

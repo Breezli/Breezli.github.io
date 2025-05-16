@@ -20528,8 +20528,9 @@ html.hide-aside .layout > div:first-child {
   }
 }
 
+/* 修改默认主题下的颜色 */
 #aside-content .card-widget#card-wechat {
-	background: #57bd6a;
+	background: #00D1FF; /* hover前颜色 */
 	display: flex;
 	justify-content: center;
 	align-content: center;
@@ -20538,30 +20539,43 @@ html.hide-aside .layout > div:first-child {
 	border: none;
 	height: 110px;
 	min-width: 250px;
+	transition: background 1s ease; /* 添加颜色过渡效果 */
 }
+
+/* Hover 时背景色变为 #57bd6a */
+#aside-content .card-widget#card-wechat:hover {
+	background: #57bd6a;
+}
+
+/* 保持暗黑主题样式不变 */
 [data-theme='dark'] #aside-content .card-widget#card-wechat {
 	background-color: #121121;
 	border: var(--style-border);
 }
 
+/* 添加翻转动画的颜色过渡 */
+#flip-wrapper:hover #aside-content .card-widget#card-wechat {
+	background: #57bd6a; /* hover后颜色 */
+}
+
+/* 保持原有3D翻转动画样式不变 */
 #flip-wrapper {
 	-webkit-perspective: 1000;
 	perspective: 1000;
-}
-
-#flip-wrapper {
 	position: relative;
 	width: 235px;
 	height: 110px;
 	z-index: 1;
 }
+
 #flip-content {
 	width: 100%;
 	height: 100%;
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
-	transition: cubic-bezier(0, 0, 0, 1.29) 0.3s;
+	transition: cubic-bezier(0, 0, 0, 1.29) 3s;
 }
+
 #aside-content #flip-wrapper #flip-content .face {
 	position: absolute;
 	width: 100%;
@@ -20573,16 +20587,16 @@ html.hide-aside .layout > div:first-child {
 
 #aside-content #flip-wrapper #flip-content .back.face {
 	display: block;
-	-webkit-transform: rotateY(180deg);
-	transform: rotateY(180deg);
+	-webkit-transform: rotateY(540deg);
+	transform: rotateY(540deg);
 	box-sizing: border-box;
 	background-size: 100%;
 }
-#flip-wrapper:hover #flip-content {
-	-webkit-transform: rotateY(180deg);
-	transform: rotateY(180deg);
-}
 
+#flip-wrapper:hover #flip-content {
+	-webkit-transform: rotateY(540deg);
+	transform: rotateY(540deg);
+}
 /* 分类目录条、标签目录条 */
 #catalog-bar {
   border-radius: var(--anzhiyu-border-radius);

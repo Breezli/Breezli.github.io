@@ -1,0 +1,91 @@
+body[data-type="map"] #page {
+  padding: 0 !important;
+}
+
+body[data-type="map"] #page .page-title {
+  display: none;
+}
+
+.map-container {
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.world-map {
+	height: 100%;
+	width: 100%;
+}
+
+.back-button {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	z-index: 10;
+	padding: 8px 15px;
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s;
+}
+
+.back-button:hover {
+	background: #f1f1f1;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.country-title {
+	position: absolute;
+	top: 15px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+	padding: 8px 20px;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 20px;
+	font-size: 18px;
+	font-weight: bold;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip-container {
+	position: absolute;
+	transform: translate(-50%, -100%);
+	z-index: 100;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+}
+
+.tooltip-content {
+	background: white;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	padding: 10px;
+	max-width: 220px;
+}
+
+.tooltip-title {
+	font-weight: bold;
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+
+.tooltip-image-container {
+	position: relative;
+}
+
+.tooltip-image {
+	width: 100%;
+	height: auto;
+	border-radius: 4px;
+	object-fit: cover;
+}

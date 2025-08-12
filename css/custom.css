@@ -11,6 +11,14 @@
 	font-family: 'CustomFont', sans-serif !important; /* 应用自定义字体 */
 }
 
+/* 影视模块的颜色 */
+.anime-color {
+    color: #1d71c5;
+}
+.movie-color {
+    color: #f2b94b;
+}
+
 /* 视频背景容器 */
 .home-banner {
 	position: fixed;
@@ -22,6 +30,19 @@
 	height: 100vh;
 	z-index: -2;
 	overflow: hidden;
+	/* 强制开启硬件加速，避免渲染错乱 */
+	transform: translateZ(0);
+	/* 防止被意外裁剪 */
+	backface-visibility: hidden;
+	/* 确保在底层 */
+	will-change: transform;
+}
+
+/* 移动端特殊处理：避免 fixed 背景错位 */
+@media (max-width: 768px) {
+	.home-banner {
+		display: none;
+	}
 }
 
 .home-banner video {
@@ -36,8 +57,6 @@
 	object-fit: cover;
 }
 
-/* 视频容器通用样式 */
-/* 视频容器通用样式 */
 .video-wrapper {
 	position: absolute;
 	top: 0;
@@ -57,6 +76,32 @@
 	opacity: 1;
 	visibility: visible;
 }
+
+/* === 各页面单视频背景 === */
+.global-video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -3;
+    opacity: 0;
+    transition: opacity 2.5s ease-in-out;
+    pointer-events: none;
+	scale: 1.2;
+}
+.global-video-bg video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.global-video-bg.fade-in {
+    opacity: 1;
+}
+
 
 /* 首页布局 摘要 标签 */
 #recent-posts > .recent-post-item > .recent-post-info {
@@ -158,4 +203,23 @@ span.post-meta-date {
 }
 #recent-posts > .recent-post-item:not(a):hover::before {
 	transform: translateX(100%) skewX(-60deg);
+}
+
+/* === 视频淡入动画 === */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
 }

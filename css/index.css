@@ -20206,7 +20206,7 @@ body[data-type="album_detail"] #page .page-title {
 
 #album_detail .album-content .datacont {
   order: 0;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--anzhiyu-fontcolor);
   width: 100%;
@@ -20590,6 +20590,14 @@ body[data-type="album"] #page .page-title {
   #album .card-album .card {
     padding: 10px 0px;
   }
+}
+
+/* body[data-type="games"] #page {
+  background-color: #ffffff46;
+} */
+
+body[data-type="gallerygroup"] #page {
+  background-color: #ffffff46;
 }
 
 h1#site-title {
@@ -23412,7 +23420,23 @@ svg.icon.faa-tada {
 .bangumi-info-item em {
   color: #f2b94b;
 }
+/* 番剧：蓝色主题 */
+.bangumi-meta.type-anime .bangumi-info-item {
+  border-right: 1px solid #4491de;
+}
+.bangumi-meta.type-anime .bangumi-info-item span,
+.bangumi-meta.type-anime .bangumi-info-item em {
+  color: #5697d8;
+}
 
+/* 电影：橙黄色主题 */
+.bangumi-meta.type-movie .bangumi-info-item {
+  border-right: 1px solid #f2b94b;
+}
+.bangumi-meta.type-movie .bangumi-info-item span,
+.bangumi-meta.type-movie .bangumi-info-item em {
+  color: #f2b94b;
+}
 /*哔哩哔哩视频适配*/
 .aspect-ratio {
   position: relative;

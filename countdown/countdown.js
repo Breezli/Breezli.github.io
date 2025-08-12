@@ -1,3 +1,6 @@
+// ====================
+// 模块1：倒计时组件 (CountdownTimer)
+// ====================
 const CountdownTimer = (() => {
 	const config = {
 		targetDate: '2026-07-25',
@@ -206,3 +209,130 @@ const CountdownTimer = (() => {
 
 	return { start, stop: () => timer && clearInterval(timer) }
 })()
+
+// ====================
+// 模块2：背景视频管理
+// ====================
+function setupPageBackground() {
+    const pageVideoMap = {
+        '/cinema/': '/media/movie.mp4',
+        '/music/': '/media/outer.mp4',
+        '/essay/': '/media/car.mp4',
+        '/gallerygroup/': '/media/mountain.mp4',
+        '/about/': '/media/totoro.mp4',
+        '/games/': '/media/yys.mp4',
+        '/link/': '/media/dog.mp4'
+    };
+
+    const pathname = window.location.pathname;
+
+    // 先清理旧视频
+    removeExistingVideoBackground();
+
+    // 匹配路径
+    for (const [path, videoSrc] of Object.entries(pageVideoMap)) {
+        if (pathname.startsWith(path)) {
+            addBackgroundVideo(videoSrc);
+            return;
+        }
+    }
+}
+
+function addBackgroundVideo(videoSrc) {
+    const videoBg = document.createElement('div');
+    videoBg.className = 'global-video-bg'; // 统一 class
+    videoBg.innerHTML = `
+        <video autoplay muted loop playsinline>
+            <source src="${videoSrc}" type="video/mp4">
+        </video>
+    `;
+    document.body.insertBefore(videoBg, document.body.firstChild);
+
+    const video = videoBg.querySelector('video');
+
+    video.addEventListener('canplay', function onCanPlay() {
+        video.removeEventListener('canplay', onCanPlay);
+        setTimeout(() => {
+            videoBg.classList.add('fade-in');
+        }, 300);
+    });
+
+    // video.addEventListener('error', () => {
+    //     console.warn(`视频加载失败: ${videoSrc}`);
+    //     videoBg.style.background = 'rgba(0, 0, 0, 0.5)';
+    //     videoBg.style.opacity = 1;
+    // });
+}
+
+function removeExistingVideoBackground() {
+    const existing = document.querySelector('.global-video-bg');
+    if (existing) {
+        const video = existing.querySelector('video');
+        if (video) {
+            video.pause();
+            video.src = '';
+        }
+        existing.remove();
+    }
+}
+
+// 绑定事件
+document.addEventListener('DOMContentLoaded', setupPageBackground);
+document.addEventListener('pjax:complete', setupPageBackground);
+document.addEventListener('pjax:send', removeExistingVideoBackground);
+
+// ====================
+// 模块3：侧边栏 & 页面背景控制（新增）
+// ====================
+
+// 存储原始背景，用于恢复
+let originalPageBackground = null;
+
+function handlePageStyleForCinema() {
+    const page = document.getElementById('page');
+    if (!page) return;
+
+    const pathname = window.location.pathname;
+
+    if (pathname.startsWith('/cinema/')) {
+        // 保存原始背景（只保存一次）
+        if (originalPageBackground === null) {
+            originalPageBackground = page.style.background || page.style.backgroundColor || '';
+        }
+        // 设置新背景
+        page.style.background = '#ffffff46';
+        // 移除 aside
+        removeAsideContent();
+    } else {
+        // 恢复原始背景
+        page.style.background = originalPageBackground;
+        // 可选：恢复 aside
+        // restoreAsideContent();
+    }
+}
+
+function removeAsideContent() {
+    const aside = document.getElementById('aside-content');
+    if (aside) {
+        aside.remove();
+        console.log('已移除侧边栏 #aside-content');
+    }
+}
+
+// ====================
+// 统一事件绑定
+// ====================
+
+document.addEventListener('DOMContentLoaded', () => {
+    setupPageBackground();
+    handlePageStyleForCinema();
+});
+
+document.addEventListener('pjax:complete', () => {
+    setupPageBackground();
+    handlePageStyleForCinema();
+});
+
+document.addEventListener('pjax:send', () => {
+    removeExistingVideoBackground();
+});

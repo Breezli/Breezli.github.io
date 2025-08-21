@@ -211,17 +211,74 @@ const CountdownTimer = (() => {
 })()
 
 // ====================
+// 模块1：视频缓存管理
+// ====================
+
+const videoCache = new Map();
+const MAX_CACHE = 3; // 最多缓存 3 个视频，防止内存占用过高
+
+function getCachedVideo(videoSrc) {
+    if (videoCache.has(videoSrc)) {
+        return videoCache.get(videoSrc);
+    }
+
+    // 超出缓存数量时，清除最老的一个
+    if (videoCache.size >= MAX_CACHE) {
+        const firstKey = videoCache.keys().next().value;
+        const old = videoCache.get(firstKey);
+        if (old.element.parentNode) {
+            old.element.remove();
+        }
+        videoCache.delete(firstKey);
+    }
+
+    const video = document.createElement('video');
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = 'auto'; // 提前加载元数据和部分数据
+    video.src = videoSrc;
+
+    // 隐藏视频（不显示但可缓存）
+    Object.assign(video.style, {
+        position: 'fixed',
+        bottom: '0',
+        right: '0',
+        width: '1px',
+        height: '1px',
+        opacity: '0',
+        pointerEvents: 'none'
+    });
+
+    document.body.appendChild(video);
+
+    const cacheItem = {
+        element: video,
+        loaded: false
+    };
+
+    video.addEventListener('canplay', () => {
+        cacheItem.loaded = true;
+        video.pause(); // 加载后暂停，节省资源
+    }, { once: true });
+
+    videoCache.set(videoSrc, cacheItem);
+
+    return cacheItem;
+}
+
+// ====================
 // 模块2：背景视频管理
 // ====================
 function setupPageBackground() {
     const pageVideoMap = {
-        '/cinema/': '/media/movie.mp4',
-        '/music/': '/media/outer.mp4',
-        '/essay/': '/media/car.mp4',
-        '/gallerygroup/': '/media/mountain.mp4',
-        '/about/': '/media/totoro.mp4',
-        '/games/': '/media/yys.mp4',
-        '/link/': '/media/dog.mp4'
+        '/cinema/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/movie.mp4',
+        '/music/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/outer.mp4',
+        '/essay/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/car.mp4',
+        '/gallerygroup/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/mountain.mp4',
+        '/about/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/totoro.mp4',
+        '/games/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/yys.mp4',
+        '/link/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/dog.mp4'
     };
 
     const pathname = window.location.pathname;
@@ -239,6 +296,9 @@ function setupPageBackground() {
 }
 
 function addBackgroundVideo(videoSrc) {
+        // 触发预加载（如果还没加载）
+    getCachedVideo(videoSrc);
+
     const videoBg = document.createElement('div');
     videoBg.className = 'global-video-bg'; // 统一 class
     videoBg.innerHTML = `
@@ -270,7 +330,8 @@ function removeExistingVideoBackground() {
         const video = existing.querySelector('video');
         if (video) {
             video.pause();
-            video.src = '';
+            // ❌ 不要设置 video.src = ''，否则会破坏缓存
+            // video.src = ''; // 删除这行！
         }
         existing.remove();
     }
@@ -315,7 +376,7 @@ function removeAsideContent() {
     const aside = document.getElementById('aside-content');
     if (aside) {
         aside.remove();
-        console.log('已移除侧边栏 #aside-content');
+        // console.log('已移除侧边栏 #aside-content');
     }
 }
 

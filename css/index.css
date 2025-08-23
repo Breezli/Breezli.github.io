@@ -34,7 +34,7 @@ html:hover::-webkit-scrollbar-thumb {
 /* 字体配置 */
 @font-face {
 	font-family: 'CustomFont';
-	src: url('https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E5%AD%97%E4%BD%93/ZiYanShiQianChunWuYu-2.ttf') format('truetype');
+	src: url('/font/ZiYanShiQianChunWuYu-2.ttf') format('truetype');
 }
 
 body {

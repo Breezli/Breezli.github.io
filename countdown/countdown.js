@@ -211,189 +211,249 @@ const CountdownTimer = (() => {
 })()
 
 // ====================
-// 模块1：视频缓存管理
+// 模块2：视频加载管理
 // ====================
 
-const videoCache = new Map();
-const MAX_CACHE = 3; // 最多缓存 3 个视频，防止内存占用过高
+// 多吉云 vcode
+const pageVideoMap = {
+	'/cinema/': 'a8bbfa2d57a67fdc',
+	'/music/': '531e21b733d2ca38',
+	'/essay/': '01a80aed3dfc744d',
+	'/gallerygroup/': 'ac5cadadb3f6b64b',
+	'/about/': '176b3e223c814d26',
+	'/link/': '6bcfafa907026db6',
+}
+// MP4 直链
+const directVideoMap = {
+	'/games/':
+		'https://yys.v.netease.com/2024/0322/3178ec9ec1d5e3df9ecb0f3656ecf62f.mp4',
+}
 
-function getCachedVideo(videoSrc) {
-    if (videoCache.has(videoSrc)) {
-        return videoCache.get(videoSrc);
-    }
+// 等待 DogePlayer 加载完成
+function waitForDogePlayer(maxWait = 10000) {
+	return new Promise((resolve, reject) => {
+		if (window.DogePlayer) {
+			resolve()
+			return
+		}
 
-    // 超出缓存数量时，清除最老的一个
-    if (videoCache.size >= MAX_CACHE) {
-        const firstKey = videoCache.keys().next().value;
-        const old = videoCache.get(firstKey);
-        if (old.element.parentNode) {
-            old.element.remove();
-        }
-        videoCache.delete(firstKey);
-    }
+		const startTime = Date.now()
 
-    const video = document.createElement('video');
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.preload = 'auto'; // 提前加载元数据和部分数据
-    video.src = videoSrc;
+		const check = () => {
+			if (window.DogePlayer) {
+				resolve()
+			} else if (Date.now() - startTime < maxWait) {
+				setTimeout(check, 50)
+			} else {
+				reject(new Error('DogePlayer 加载超时'))
+			}
+		}
 
-    // 隐藏视频（不显示但可缓存）
-    Object.assign(video.style, {
-        position: 'fixed',
-        bottom: '0',
-        right: '0',
-        width: '1px',
-        height: '1px',
-        opacity: '0',
-        pointerEvents: 'none'
-    });
-
-    document.body.appendChild(video);
-
-    const cacheItem = {
-        element: video,
-        loaded: false
-    };
-
-    video.addEventListener('canplay', () => {
-        cacheItem.loaded = true;
-        video.pause(); // 加载后暂停，节省资源
-    }, { once: true });
-
-    videoCache.set(videoSrc, cacheItem);
-
-    return cacheItem;
+		check()
+	})
 }
 
 // ====================
-// 模块2：背景视频管理
+// 模块3：背景视频管理
 // ====================
+
 function setupPageBackground() {
-    const pageVideoMap = {
-        '/cinema/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/movie.mp4',
-        '/music/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/outer.mp4',
-        '/essay/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/car.mp4',
-        '/gallerygroup/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/mountain.mp4',
-        '/about/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/totoro.mp4',
-        '/games/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/yys.mp4',
-        '/link/': 'https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E8%83%8C%E6%99%AF%E8%A7%86%E9%A2%91/dog.mp4'
-    };
+	const pathname = window.location.pathname
+	removeExistingVideoBackground()
 
-    const pathname = window.location.pathname;
+	// 先检查是否是 MP4 直链路径
+	for (const [path, mp4Url] of Object.entries(directVideoMap)) {
+		if (pathname.startsWith(path)) {
+			addDirectMP4Background(mp4Url)
+			return
+		}
+	}
 
-    // 先清理旧视频
-    removeExistingVideoBackground();
-
-    // 匹配路径
-    for (const [path, videoSrc] of Object.entries(pageVideoMap)) {
-        if (pathname.startsWith(path)) {
-            addBackgroundVideo(videoSrc);
-            return;
-        }
-    }
+	// 否则走原来的 vcode 路径
+	for (const [path, vcode] of Object.entries(pageVideoMap)) {
+		if (pathname.startsWith(path)) {
+			addBackgroundVideo(vcode)
+			return
+		}
+	}
 }
 
-function addBackgroundVideo(videoSrc) {
-        // 触发预加载（如果还没加载）
-    getCachedVideo(videoSrc);
+// mp4 直链
+function addDirectMP4Background(mp4Url) {
+	const videoBg = document.createElement('div')
+	videoBg.className = 'global-video-bg'
+	Object.assign(
+		(videoBg.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0;
+        overflow: hidden;
+    `)
+	)
 
-    const videoBg = document.createElement('div');
-    videoBg.className = 'global-video-bg'; // 统一 class
-    videoBg.innerHTML = `
-        <video autoplay muted loop playsinline>
-            <source src="${videoSrc}" type="video/mp4">
-        </video>
-    `;
-    document.body.insertBefore(videoBg, document.body.firstChild);
+	const video = document.createElement('video')
+	video.style.cssText = 'width: 100%; height: 100%;'
+	video.autoplay = true
+	video.muted = true
+	video.loop = true
+	video.playsInline = true
+	video.src = mp4Url
 
-    const video = videoBg.querySelector('video');
+	video.addEventListener('canplay', function onCanPlay() {
+		video.removeEventListener('canplay', onCanPlay)
+		setTimeout(() => {
+			videoBg.classList.add('fade-in')
+		}, 300)
+	})
 
-    video.addEventListener('canplay', function onCanPlay() {
-        video.removeEventListener('canplay', onCanPlay);
-        setTimeout(() => {
-            videoBg.classList.add('fade-in');
-        }, 300);
-    });
+	videoBg.appendChild(video)
+	document.body.insertBefore(videoBg, document.body.firstChild)
+}
 
-    // video.addEventListener('error', () => {
-    //     console.warn(`视频加载失败: ${videoSrc}`);
-    //     videoBg.style.background = 'rgba(0, 0, 0, 0.5)';
-    //     videoBg.style.opacity = 1;
-    // });
+// vcode 路径
+async function addBackgroundVideo(vcode) {
+	try {
+		await waitForDogePlayer()
+
+		// 创建视频背景容器
+		const videoBg = document.createElement('div')
+		videoBg.className = 'global-video-bg'
+		Object.assign(
+			(videoBg.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            overflow: hidden;
+        `)
+		)
+
+		// 创建播放器容器
+		const container = document.createElement('div')
+		container.style.cssText = 'width: 100%; height: 100%;'
+		videoBg.appendChild(container)
+
+		// 插入到DOM
+		document.body.insertBefore(videoBg, document.body.firstChild)
+
+		// 创建新的播放器实例
+		const player = new DogePlayer({
+			container,
+			userId: 13641,
+			vcode,
+			autoPlay: true,
+			muted: true,
+			loop: true,
+			playsInline: true,
+		})
+
+		// 尝试监听多个可能的事件
+		const eventsToTry = [
+			'ready',
+			'play',
+			'loadeddata',
+			'canplay',
+			'canplaythrough',
+		]
+
+		const onPlayerReady = () => {
+			// 移除所有可能的事件监听
+			eventsToTry.forEach((event) => {
+				player.off(event, onPlayerReady)
+			})
+
+			// 添加淡入效果
+			setTimeout(() => {
+				videoBg.classList.add('fade-in')
+			}, 300)
+		}
+
+		// 尝试监听所有可能的事件
+		eventsToTry.forEach((event) => {
+			player.on(event, onPlayerReady)
+		})
+
+		// 设置超时，如果10秒内没有触发任何事件，则强制显示
+		setTimeout(() => {
+			videoBg.classList.add('fade-in')
+			console.log('背景视频超时显示')
+		}, 5000)
+	} catch (err) {
+		console.error('背景视频加载失败:', err)
+	}
 }
 
 function removeExistingVideoBackground() {
-    const existing = document.querySelector('.global-video-bg');
-    if (existing) {
-        const video = existing.querySelector('video');
-        if (video) {
-            video.pause();
-            // ❌ 不要设置 video.src = ''，否则会破坏缓存
-            // video.src = ''; // 删除这行！
-        }
-        existing.remove();
-    }
+	const existing = document.querySelectorAll('.global-video-bg')
+	existing.forEach((el) => {
+		const iframe = el.querySelector('iframe')
+		if (iframe) {
+			iframe.src = ''
+		}
+		el.remove()
+	})
 }
 
-// 绑定事件
-document.addEventListener('DOMContentLoaded', setupPageBackground);
-document.addEventListener('pjax:complete', setupPageBackground);
-document.addEventListener('pjax:send', removeExistingVideoBackground);
-
 // ====================
-// 模块3：侧边栏 & 页面背景控制（新增）
+// 模块3：侧边栏 & 页面背景控制
 // ====================
 
-// 存储原始背景，用于恢复
-let originalPageBackground = null;
+let originalPageBackground = null
 
 function handlePageStyleForCinema() {
-    const page = document.getElementById('page');
-    if (!page) return;
+	const page = document.getElementById('page')
+	if (!page) return
 
-    const pathname = window.location.pathname;
+	const pathname = window.location.pathname
 
-    if (pathname.startsWith('/cinema/')) {
-        // 保存原始背景（只保存一次）
-        if (originalPageBackground === null) {
-            originalPageBackground = page.style.background || page.style.backgroundColor || '';
-        }
-        // 设置新背景
-        page.style.background = '#ffffff46';
-        // 移除 aside
-        removeAsideContent();
-    } else {
-        // 恢复原始背景
-        page.style.background = originalPageBackground;
-        // 可选：恢复 aside
-        // restoreAsideContent();
-    }
+	if (pathname.startsWith('/cinema/')) {
+		if (originalPageBackground === null) {
+			originalPageBackground = window.getComputedStyle(page).background || ''
+		}
+		page.style.background = '#ffffff46'
+		removeAsideContent()
+	} else {
+		page.style.background = originalPageBackground
+	}
 }
 
 function removeAsideContent() {
-    const aside = document.getElementById('aside-content');
-    if (aside) {
-        aside.remove();
-        // console.log('已移除侧边栏 #aside-content');
-    }
+	const aside = document.getElementById('aside-content')
+	if (aside) {
+		aside.remove()
+	}
 }
 
 // ====================
-// 统一事件绑定
+// 统一初始化
 // ====================
 
-document.addEventListener('DOMContentLoaded', () => {
-    setupPageBackground();
-    handlePageStyleForCinema();
-});
+function onDOMReady(callback) {
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', callback)
+	} else {
+		callback()
+	}
+}
 
-document.addEventListener('pjax:complete', () => {
-    setupPageBackground();
-    handlePageStyleForCinema();
-});
+function safeInit() {
+	// 不再等待DogePlayer，直接设置背景
+	onDOMReady(() => {
+		setupPageBackground()
+		handlePageStyleForCinema()
+	})
+}
 
-document.addEventListener('pjax:send', () => {
-    removeExistingVideoBackground();
-});
+// 首次加载
+safeInit()
+
+// PJAX 支持
+document.addEventListener('pjax:complete', safeInit)
+document.addEventListener('pjax:send', removeExistingVideoBackground)

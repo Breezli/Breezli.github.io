@@ -1,7 +1,7 @@
 /* 字体-start */
 @font-face {
     font-family: 'CustomFont';
-    src: url('https://static-breezli.oss-cn-shanghai.aliyuncs.com/%E5%AD%97%E4%BD%93/ZiYanShiQianChunWuYu-2.ttf') format('truetype');
+    src: url('/font/ZiYanShiQianChunWuYu-2.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -44,6 +44,15 @@
 	}
 }
 
+#gallerygroup .container{
+	position: relative;
+    width: 100%;
+    height: 70em;
+    display: inline-block;
+    vertical-align: bottom;
+    transform: translate3d(0, 0, 0);
+}
+
 .home-banner video {
 	object-fit: cover;
 	min-width: 100%;
@@ -77,30 +86,56 @@
 }
 
 /* === 各页面单视频背景 === */
+/* 确保视频容器覆盖整个视口 */
 .global-video-bg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -3;
+    z-index: -1;
     opacity: 0;
-    transition: opacity 2.5s ease-in-out;
-    pointer-events: none;
+    transition: opacity 2s ease-in-out;
+    overflow: hidden;
 	scale: 1.2;
 }
+
+/* 确保iframe/video元素填满容器 */
+.global-video-bg iframe,
 .global-video-bg video {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
     object-fit: cover;
 }
 .global-video-bg.fade-in {
-    opacity: 1;
+    opacity: 1 !important;
 }
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 针对小屏幕设备的调整 */
+@media (max-aspect-ratio: 16/9) {
+    .global-video-bg iframe,
+    .global-video-bg video {
+        width: 100vw;
+        height: 177.78vw; /* 16:9 aspect ratio */
+    }
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .global-video-bg iframe,
+    .global-video-bg video {
+        width: 177.78vh; /* 16:9 aspect ratio */
+        height: 100vh;
+    }
+}
 
 /* 首页布局 摘要 标签 */
 #recent-posts > .recent-post-item > .recent-post-info {

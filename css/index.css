@@ -34,7 +34,7 @@ html:hover::-webkit-scrollbar-thumb {
 /* 字体配置 */
 @font-face {
 	font-family: 'CustomFont';
-	src: url('/font/ZiYanShiQianChunWuYu-2.ttf') format('truetype');
+	src: url('http://t1iaf3kyj.bkt.gdipper.com/blog/ZiYanShiQianChunWuYu-2.ttf') format('truetype');
 }
 
 body {
@@ -24316,6 +24316,15 @@ svg.icon.faa-tada {
 .bangumi-meta.type-movie .bangumi-info-item span,
 .bangumi-meta.type-movie .bangumi-info-item em {
   color: #f2b94b;
+}
+
+/* 电视剧：红色主题 */
+.bangumi-meta.type-teleplay .bangumi-info-item {
+  border-right: 1px solid #ff4a4a;
+}
+.bangumi-meta.type-teleplay .bangumi-info-item span,
+.bangumi-meta.type-teleplay .bangumi-info-item em {
+  color: #ff4a4a;
 }
 /*哔哩哔哩视频适配*/
 .aspect-ratio {

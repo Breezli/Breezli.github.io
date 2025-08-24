@@ -225,8 +225,8 @@ const pageVideoMap = {
 }
 // MP4 直链
 const directVideoMap = {
-	'/games/':
-		'https://yys.v.netease.com/2024/0322/3178ec9ec1d5e3df9ecb0f3656ecf62f.mp4',
+	// '/games/':
+	// 	'https://yys.v.netease.com/2024/0322/3178ec9ec1d5e3df9ecb0f3656ecf62f.mp4',
 }
 
 // 等待 DogePlayer 加载完成

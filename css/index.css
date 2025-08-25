@@ -34,7 +34,7 @@ html:hover::-webkit-scrollbar-thumb {
 /* 字体配置 */
 @font-face {
 	font-family: 'CustomFont';
-	src: url('http://t1iaf3kyj.bkt.gdipper.com/blog/ZiYanShiQianChunWuYu-2.ttf') format('truetype');
+	src: url('https://cdn.breezli.cn/blog/ZiYanShiQianChunWuYu-2.ttf') format('truetype');
 }
 
 body {

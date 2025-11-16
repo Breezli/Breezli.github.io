@@ -1733,9 +1733,10 @@ document.addEventListener("DOMContentLoaded", function () {
     consoleEl = document.getElementById("console");
 
     addDarkModeEventListener("console", ".darkmode_switchbutton");
-    addDarkModeEventListener("nav-naoDark", ".components");
-    addDarkModeEventListener("console-naoDark", ".components");
+    addDarkModeEventListener("nav-naoDark", ".night-toggle-switch");
+    addDarkModeEventListener("console-naoDark", ".night-toggle-switch");
 
+    
     if (GLOBAL_CONFIG_SITE.isPost) {
       GLOBAL_CONFIG.noticeOutdate !== undefined && addPostOutdateNotice();
       GLOBAL_CONFIG.relativeDate.post && relativeDate(document.querySelectorAll("#post-meta time"));

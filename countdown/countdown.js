@@ -218,15 +218,15 @@ const CountdownTimer = (() => {
 const pageVideoMap = {
 	'/cinema/': 'a8bbfa2d57a67fdc',
 	'/music/': '531e21b733d2ca38',
-	'/essay/': '01a80aed3dfc744d',
+	'/essay/': 'a6b4518ca35abebf',
 	'/gallerygroup/': 'ac5cadadb3f6b64b',
-	'/about/': '176b3e223c814d26',
+	'/about/': '7286bbf83869ec83',
 	'/link/': '6bcfafa907026db6',
 }
 // MP4 直链
 const directVideoMap = {
-	// '/games/':
-	// 	'https://yys.v.netease.com/2024/0322/3178ec9ec1d5e3df9ecb0f3656ecf62f.mp4',
+	'/games/':
+		'https://yys.v.netease.com/2024/0322/3178ec9ec1d5e3df9ecb0f3656ecf62f.mp4',
 }
 
 // 等待 DogePlayer 加载完成
@@ -256,10 +256,15 @@ function waitForDogePlayer(maxWait = 10000) {
 // ====================
 // 模块3：背景视频管理
 // ====================
-
 function setupPageBackground() {
 	const pathname = window.location.pathname
 	removeExistingVideoBackground()
+
+	// 主页特殊处理
+	if (pathname === '/' || pathname === '/index.html') {
+		setupHomepageBackground()
+		return
+	}
 
 	// 先检查是否是 MP4 直链路径
 	for (const [path, mp4Url] of Object.entries(directVideoMap)) {
@@ -275,6 +280,87 @@ function setupPageBackground() {
 			addBackgroundVideo(vcode)
 			return
 		}
+	}
+}
+
+async function setupHomepageBackground() {
+	try {
+		await waitForDogePlayer()
+
+		const homeBanner = document.querySelector('.home-banner')
+		if (!homeBanner) return
+
+		// 获取所有可能的 vcode
+		const vcodeMap = {
+			midnight: homeBanner.dataset.midnightVcode,    // 0-5
+			morning: homeBanner.dataset.morningVcode,      // 6-8
+			noon: homeBanner.dataset.noonVcode,            // 9-12
+			afternoon: homeBanner.dataset.afternoonVcode,  // 13-17
+			evening: homeBanner.dataset.eveningVcode,      // 18-23
+		}
+
+		const hour = new Date().getHours()
+
+		let selectedKey, vcode
+
+		if (hour >= 2 && hour <= 5) {
+			selectedKey = 'midnight'
+		} else if (hour >= 6 && hour <= 12) {
+			selectedKey = 'morning'
+		} else if (hour >= 13 && hour <= 16) {
+			selectedKey = 'noon'
+		} else if (hour >= 17 && hour <= 21) {
+			selectedKey = 'afternoon'
+		} else {
+			selectedKey = 'evening'
+		}
+
+		vcode = vcodeMap[selectedKey]
+
+		// 如果该时段没有配置 vcode，则回退到 evening 或任意默认值
+		if (!vcode) {
+			console.warn(`【主页】未配置 ${selectedKey} 时段的视频 vcode，尝试使用 evening...`)
+			vcode = vcodeMap.evening || vcodeMap.afternoon || vcodeMap.noon || vcodeMap.morning || vcodeMap.midnight
+		}
+
+		if (!vcode) {
+			console.warn('【主页】所有时段均无有效 vcode，跳过视频加载')
+			return
+		}
+
+		// 清空所有容器（确保只有一个播放器）
+		const dayContainer = document.getElementById('dayPlayerContainer')
+		const nightContainer = document.getElementById('nightPlayerContainer')
+		if (dayContainer) dayContainer.innerHTML = ''
+		if (nightContainer) nightContainer.innerHTML = ''
+
+		// 统一使用一个容器播放（比如 dayPlayerContainer）
+		const targetContainer = dayContainer || nightContainer
+		if (!targetContainer) {
+			console.error('【主页】缺少播放器容器（#dayPlayerContainer 或 #nightPlayerContainer）')
+			return
+		}
+
+		// 创建播放器
+		new DogePlayer({
+			container: targetContainer,
+			userId: 13641,
+			vcode: vcode,
+			autoPlay: true,
+			muted: true,
+			loop: true,
+			playsInline: true,
+		})
+
+		// 淡入效果
+		setTimeout(() => {
+			document.querySelectorAll('.video-wrapper').forEach(el => {
+				el.style.opacity = '1'
+				el.style.transition = 'opacity 1s'
+			})
+		}, 500)
+	} catch (err) {
+		console.error('【主页】背景视频加载失败:', err)
 	}
 }
 
@@ -391,14 +477,31 @@ async function addBackgroundVideo(vcode) {
 }
 
 function removeExistingVideoBackground() {
-	const existing = document.querySelectorAll('.global-video-bg')
-	existing.forEach((el) => {
-		const iframe = el.querySelector('iframe')
-		if (iframe) {
-			iframe.src = ''
-		}
-		el.remove()
-	})
+  // 1. 移除通用视频背景
+  document.querySelectorAll('.global-video-bg').forEach(el => {
+    const iframe = el.querySelector('iframe');
+    if (iframe) {
+      iframe.src = 'about:blank'; // 👈 强制停止播放
+      iframe.remove();
+    }
+    el.remove();
+  });
+
+  // 2. 清理主页容器
+  const dayContainer = document.getElementById('dayPlayerContainer');
+  const nightContainer = document.getElementById('nightPlayerContainer');
+
+  if (dayContainer) {
+    const iframe = dayContainer.querySelector('iframe');
+    if (iframe) iframe.src = 'about:blank';
+    dayContainer.innerHTML = '';
+  }
+
+  if (nightContainer) {
+    const iframe = nightContainer.querySelector('iframe');
+    if (iframe) iframe.src = 'about:blank';
+    nightContainer.innerHTML = '';
+  }
 }
 
 // ====================
@@ -413,7 +516,7 @@ function handlePageStyleForCinema() {
 
 	const pathname = window.location.pathname
 
-	if (pathname.startsWith('/cinema/')) {
+	if (pathname.startsWith('/cinema/' || '/games/' || '/gallerygroup/')) {
 		if (originalPageBackground === null) {
 			originalPageBackground = window.getComputedStyle(page).background || ''
 		}

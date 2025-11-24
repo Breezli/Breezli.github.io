@@ -278,14 +278,14 @@ hr:before,
 #article-container a.headerlink::before,
 #post .post-outdate-notice:before,
 .note:not(.no-icon)::before {
-  font-family: 'FontsLab-QianChunWuYu';
+  font-family: "anzhiyufont";
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .anzhiyufont::before {
-  font-family: 'FontsLab-QianChunWuYu' !important;
+  font-family: "anzhiyufont" !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22053,11 +22053,6 @@ html.hide-aside .layout > div:first-child {
 	background: #0076e5;
 }
 
-/* 保持暗黑主题样式不变 */
-[data-theme='dark'] #aside-content .card-widget#card-wechat {
-	background-color: #121121;
-	border: var(--style-border);
-}
 
 /* 添加翻转动画的颜色过渡 */
 #flip-wrapper:hover #aside-content .card-widget#card-wechat {
@@ -24843,7 +24838,7 @@ a.categoryButton {
   transition: all 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
   transform: scale(1);
   overflow: hidden;
-  font-family: 'FontsLab-QianChunWuYu';
+  font-family: inherit;
 }
 .categoryButtonText {
   padding-left: 21px;

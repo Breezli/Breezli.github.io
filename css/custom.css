@@ -69,7 +69,7 @@ a:hover {
 
 .home-banner video {
 	object-fit: cover;
-	min-width: 100%;
+	/* min-width: 100%; */
 	min-height: 100%;
 }
 

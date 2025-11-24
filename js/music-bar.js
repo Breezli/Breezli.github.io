@@ -70,8 +70,17 @@
 
             if (songTitleElement) songTitleElement.textContent = track.name || "未知歌曲";
             if (artistNameElement) artistNameElement.textContent = track.artist || "未知艺术家";
-            if (coverArtImgElement) coverArtImgElement.src = track.pic || anzhiyuPlayerConfig.defaultCoverArt;
-
+            if (coverArtImgElement) {
+                let highResPic = track.pic || anzhiyuPlayerConfig.defaultCoverArt;
+                // 如果是网易云音乐的封面，尝试提升分辨率
+                if (highResPic && highResPic.includes('music.126.net') && highResPic.includes('param=')) {
+                    // 移除 param 参数以获取原图（或替换为更大的尺寸）
+                    highResPic = highResPic.split('?')[0]; // 直接取原图
+                    // 或者指定更大尺寸，例如 500x500（注意：网易云不一定支持任意尺寸）
+                    // highResPic = highResPic.replace(/param=\d+y\d+/, 'param=500y500');
+                }
+                coverArtImgElement.src = highResPic;
+            }
             if (audioElement) {
                 const wasPlaying = !audioElement.paused && audioElement.currentTime > 0;
                 const currentSrc = audioElement.currentSrc;

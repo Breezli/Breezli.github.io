@@ -303,7 +303,7 @@ async function setupHomepageBackground() {
 
 		let selectedKey, vcode
 
-		if (hour >= 2 && hour <= 5) {
+		if (hour >= 0 && hour <= 5) {
 			selectedKey = 'midnight'
 		} else if (hour >= 6 && hour <= 12) {
 			selectedKey = 'morning'
